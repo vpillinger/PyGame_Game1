@@ -10,23 +10,26 @@ black = 0, 0, 0
 screen = pygame.display.set_mode(screen_size)
 clock = pygame.time.Clock();
 
-ball = pygame.image.load("asteroid.png").convert()
-ball = pygame.transform.scale(ball, (60,60))
-ballrect = ball.get_rect()
+asteroid = pygame.image.load("asteroid.png").convert()
+asteroid = pygame.transform.scale(asteroid, (60, 60))
+drawrect = asteroid.get_rect()
 
 while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
 
-    ballrect = ballrect.move(ball_speed)
-    if ballrect.left < 0 or ballrect.right > width:
+    drawrect = drawrect.move(ball_speed)
+    if drawrect.left < 0 or drawrect.right > width:
         ball_speed[0] = -ball_speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
+    if drawrect.top < 0 or drawrect.bottom > height:
         ball_speed[1] = -ball_speed[1]
 
     # Draw Screen
     screen.fill(black)
-    screen.blit(ball, ballrect)
+    screen.
+
+    # Draw asteroid
+    screen.blit(asteroid, drawrect)
     pygame.display.flip()
 
     # FPS measuring
